@@ -3,7 +3,7 @@
 ## 📖 Project Overview
 This project is an end-to-end **Healthcare Revenue Cycle Management (RCM)** data engineering solution built using **Azure Data Factory, Azure Data Lake Gen2, Azure Databricks, and Delta Lake**.
 
-The project focuses on designing **production-style data pipelines** that ingest data from multiple hospital branches, standardize it using a **Common Data Model**, and prepare reliable datasets for downstream analytics and reporting teams.
+The project focuses on designing **production-style data pipelines** that ingest data from multiple hospital branches, standardize it using a **Common Data Model**, and prepare reliable datasets for downstream analytics and reporting teams..
 
 ---
 
@@ -13,7 +13,6 @@ In healthcare organizations, revenue is mainly driven by two components:
 - **Accounts Payable (AP)** – payments made to providers and vendors
 
 Hospitals often operate multiple branches, each having its own EMR database.  
-Additionally, data from insurance companies (claims), NPI registry, and ICD codes comes in different formats.
 
 Because of this:
 - Reporting teams struggle with inconsistent schemas
@@ -28,14 +27,21 @@ This project solves these problems by building a **centralized healthcare data p
 - **Azure Data Factory (ADF)** – Pipeline orchestration
 - **Azure Data Lake Gen2** – Centralized storage
 - **Azure Databricks** – Data transformation
-- **Delta Lake** – ACID compliance & SCD handling
+- **Delta Lake** – SCD handling
 - **SQL / PySpark** – Transformations
 - **Parquet** – Storage format
 
 ---
 
 ## 🏗️ Solution Architecture (Medallion)
-The solution follows **Bronze–Silver–Gold architecture**.
+
+This diagram represents the end-to-end data flow across Bronze, Silver, and Gold layers.
+
+![Architecture Diagram](https://github.com/alpesh502/azure-healthcare-rcm-pipeline/blob/main/Architecture-Diagram.png)
+
+The solution follows **Bronze–Silver–Gold architecture**, ensuring scalability, data quality, and analytics readiness.
+
+---
 
 ### 🥉 Bronze Layer 
 - Ingests raw data from multiple EMR databases (different hospital branches)
@@ -47,17 +53,27 @@ The solution follows **Bronze–Silver–Gold architecture**.
 
 ---
 
+## 🔄 Azure Data Factory Pipeline (Bronze Layer)
+
+The following image shows the **ADF pipeline used for ingesting EMR data into the Bronze layer**.
+
+![ADF Pipeline](https://github.com/alpesh502/azure-healthcare-rcm-pipeline/blob/main/adf/adf-pipeline.png)
+
+
+
 ### 🥈 Silver Layer
 - Applies **Common Data Model (CDM)** across hospital branches
 - Performs data cleansing and standardization
-- Implements **SCD Type 2** using Delta Lake
-- Ensures historical tracking of patient, provider, and encounter data
+- Implements **Slowly Changing Dimension (SCD Type 2)**
+- Uses **Delta Lake MERGE operations** to maintain history
+
+![Silver Layer Merge](https://github.com/alpesh502/azure-healthcare-rcm-pipeline/blob/main/Silver_Layer(Merge).png)
 
 ---
 
 ### 🥇 Gold Layer
 - Builds business-ready datasets
-- Supports Accounts Receivable and Claims analytics
+- Supports **Accounts Receivable and Claims analytics**
 - Designed for BI and reporting use cases
 
 ---
@@ -74,6 +90,7 @@ The solution follows **Bronze–Silver–Gold architecture**.
 - **ICD Codes** (Diagnosis reference)
 
 
+
 ---
 
 ## 📈 Business Value
@@ -82,18 +99,11 @@ The solution follows **Bronze–Silver–Gold architecture**.
 - Historical visibility into patient and claim changes
 - Reduced manual effort for reporting teams
 
----
-
-## 📚 What I Learned From This Project
-- How to design **ADF pipelines for real-world use cases**
-- How to handle **incremental vs full loads**
-- Importance of **Common Data Models** in enterprise systems
-- Practical use of **Delta Lake & SCD Type 2**
-- How data engineering supports healthcare finance operations
 
 
 ---
 
 ## 👤 Author
 **Alpesh Singh**  
-Aspiring Data Engineer | Azure | Databricks | SQL
+Aspiring Data Engineer | ADF | Databricks | SQL
+
