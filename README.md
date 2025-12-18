@@ -12,7 +12,7 @@ In healthcare organizations, revenue is mainly driven by two components:
 - **Accounts Receivable (AR)** – money to be collected from patients and insurance
 - **Accounts Payable (AP)** – payments made to providers and vendors
 
-Hospitals often operate multiple branches, each having its own EMR database.  
+Hospitals often operate multiple branches, each having its own EMR database.
 
 Because of this:
 - Reporting teams struggle with inconsistent schemas
