@@ -67,7 +67,9 @@ The following image shows the **ADF pipeline used for ingesting EMR data into th
 - Implements **Slowly Changing Dimension (SCD Type 2)**
 - Uses **Delta Lake MERGE operations** to maintain history
 
-![Silver Layer Merge](https://github.com/alpesh502/azure-healthcare-rcm-pipeline/blob/main/Silver_Layer(Merge).png)
+![Silver Layer 1](https://github.com/alpesh502/azure-healthcare-rcm-pipeline/blob/main/Silverlayer1.png)
+![Silver Layer 2](https://github.com/alpesh502/azure-healthcare-rcm-pipeline/blob/main/silverlayer2.png)
+![Silver Layer 3](https://github.com/alpesh502/azure-healthcare-rcm-pipeline/blob/main/Silverlayer3.png)
 
 ---
 
